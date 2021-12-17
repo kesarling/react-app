@@ -1,9 +1,10 @@
 import React from "react";
 
 class CancelOrder extends React.Component {
-	onclickHandler = e => {
+	onclickHandler = () => {
 		fetch('/orders/cancel/' + this.props.orderId, {
 			method: "DELETE",
+			headers: { "Content-Type": "application/json" },
 		}).then(() => {
 			window.location.replace('/orders');
 		});
@@ -11,7 +12,7 @@ class CancelOrder extends React.Component {
 
 	render() {
 		return (
-			<button className="btn btn-secondary" onClick={this.onclickHandler}>Cancel</button>
+			<a className="btn btn-secondary" onClick={this.onclickHandler}>Cancel</a>
 		);
 	}
 }

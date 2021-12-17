@@ -20,11 +20,11 @@ class AddOrderForm extends React.Component {
 			body: JSON.stringify({
 				"total": this.state.total,
 				"totalTax": this.state.totalTax,
-				"status": 0
+				"status": 0,
 			}),
 			headers: { "Content-Type": "application/json" },
 		}).then(() => {
-			window.location.href = "/orders"
+			window.location.href = "/orders";
 		});
 	}
 

@@ -1,29 +1,23 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
-import Main from "./Main";
+import OrdersPage from "./orders/OrdersPage";
+import ItemsPage from "./items/ItemsPage";
+import { Route, Router, Routes } from "react-router-dom";
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			orders: [],
-		}
-		fetch("/orders", {
-			method: "GET",
-			mode: "no-cors",
-			credentials: "same-origin",
-			headers: { "Content-Type": "application/json" },
-		}).then((response) => 
-			response.json()
-		).then((data) => {
-			this.setState({orders: data});
-		});
 	}
 	
 	render() {
 		return (
 			<div className="container">
-				<Main orders={this.state.orders} />
+				<Router>
+					<Routes>
+						<Route path="/orders" element={<OrdersPage />} />
+						<Route path="/items" element={<ItemsPage />} />
+					</Routes>
+				</Router>
 			</div>
 		);
 	}

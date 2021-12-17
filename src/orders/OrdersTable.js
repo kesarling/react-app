@@ -2,6 +2,24 @@ import React from "react";
 import CancelOrder from "./CancelOrder";
 
 class OrdersTable extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			orders: [],
+		}
+		fetch("/orders", {
+			method: "GET",
+			mode: "no-cors",
+			credentials: "same-origin",
+			headers: { "Content-Type": "application/json" },
+		}).then((response) =>
+			response.json()
+		).then((data) => {
+			this.setState({ orders: data });
+		});
+	}
+
 	render() {
 		return (
 			<div className="d-flex flex-column">
@@ -17,7 +35,7 @@ class OrdersTable extends React.Component {
 					</thead>
 					<tbody>
 						{
-							this.props.allOrders.map((order) => {
+							this.state.orders.map((order) => {
 								return (
 									<tr className="d-table-row" key={order["orderId"]}>
 										<td className="d-table-cell">{order["orderId"]}</td>

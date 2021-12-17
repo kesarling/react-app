@@ -1,6 +1,6 @@
 import reactDom from "react-dom";
-import AddOrderForm from "./AddOrderForm";
 import App from "./App";
+import NavBarHeader from "./NavBarHeader";
 
-reactDom.render(<AddOrderForm />, document.getElementById('header'));
+reactDom.render(<NavBarHeader />, document.getElementById('header'));
 reactDom.render(<App />, document.getElementById('root'));

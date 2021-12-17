@@ -1,0 +1,8 @@
+.navbarheader {
+	margin-bottom: 0.2%;
+	display: flex;
+	flex-direction: row-reverse;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+}
